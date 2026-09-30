@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title if post else 'Post Not Found' }} - CMS Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/posts" class="brand-logo">CMS <span>Lab</span></a>
+            <a href="/posts/new" class="btn btn-primary">+ New Post</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="back-link">
+            <a href="/posts" class="btn btn-outline">&larr; Back to all posts</a>
+        </div>
+
+        {% if post %}
+            <article class="single-post">
+                <h1>{{ post.title }}</h1>
+                <div class="post-meta">
+                    <span class="author">By {{ post.author }}</span>
+                    <span>&bull;</span>
+                    <span class="date">{{ post.createdAt }}</span>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-content">
+                    {{ post.content }}
+                </div>
+
+                <hr class="post-divider">
+                <div style="margin-top: 20px;">
+                    <a href="/posts" class="btn btn-secondary">&larr; Back to Posts</a>
+                </div>
+            </article>
+        {% else %}
+            <div class="empty-box">
+                <h2>Post Not Found</h2>
+                <p>The post you requested could not be found.</p>
+                <a href="/posts" class="btn btn-primary">Back to Homepage</a>
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>

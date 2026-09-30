@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts - CMS Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/posts" class="brand-logo">CMS <span>Lab</span></a>
+            <a href="/posts/new" class="btn btn-primary">+ New Post</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Posts</h1>
+            <a href="/posts/new" class="btn btn-primary">+ New Post</a>
+        </div>
+
+        <section class="posts-grid">
+            {% for post in posts %}
+                <article class="post-card">
+                    <h2 class="post-title">
+                        <a href="/posts/{{ post._id }}">{{ post.title }}</a>
+                    </h2>
+                    <div class="post-meta">
+                        <span class="author">By {{ post.author }}</span>
+                        <span>&bull;</span>
+                        <span class="date">{{ post.createdAt }}</span>
+                    </div>
+                </article>
+            {% else %}
+                <div class="empty-box">
+                    <p>No posts published yet.</p>
+                    <a href="/posts/new" class="btn btn-primary">Create the first post</a>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

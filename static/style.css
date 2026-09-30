@@ -1,0 +1,256 @@
+/* Clean, modern, human-crafted styling with tasteful colors */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header & Navigation */
+.navbar {
+    background-color: #1e293b;
+    color: #ffffff;
+    border-bottom: 3px solid #3b82f6;
+}
+
+.nav-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.brand-logo span {
+    color: #60a5fa;
+}
+
+/* Page Container */
+.container {
+    max-width: 860px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    color: #0f172a;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: #cbd5e1;
+    color: #475569;
+}
+
+.btn-outline:hover {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+/* Post Cards */
+.posts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.post-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.post-card:hover {
+    border-left-color: #1d4ed8;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.post-title {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+}
+
+.post-title a {
+    color: #1e293b;
+    text-decoration: none;
+}
+
+.post-title a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.post-meta {
+    font-size: 0.88rem;
+    color: #64748b;
+    display: flex;
+    gap: 12px;
+}
+
+.post-meta .author {
+    color: #0369a1;
+    font-weight: 500;
+}
+
+/* Single Post View */
+.single-post {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.single-post h1 {
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.post-divider {
+    height: 1px;
+    background-color: #e2e8f0;
+    border: none;
+    margin: 20px 0;
+}
+
+.post-content {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #334155;
+    white-space: pre-line;
+}
+
+.back-link {
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* Form Styles */
+.form-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-card h1 {
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #334155;
+}
+
+.form-control {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-family: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 22px;
+}
+
+/* Empty State */
+.empty-box {
+    background-color: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #64748b;
+}
+
+.empty-box p {
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
