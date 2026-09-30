@@ -7,7 +7,7 @@
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 
 This project is a Blog Content Management System (CMS) developed for the **Backend Development Lab Examination** according to the official examination guidelines.
 
@@ -15,16 +15,16 @@ The application allows users to create blog posts, view a list of all posts with
 
 ---
 
-## 🛠️ Technology Stack (Option B)
+## Technology Stack (Option B)
 
 * **Backend:** Python 3.x with Flask
 * **Template Engine:** Jinja2 (Server-side rendering)
 * **Database:** MongoDB (via `pymongo` driver) with in-memory persistence fallback
-* **Frontend:** Clean, responsive semantic HTML5 & CSS3
+* **Frontend:** Clean, responsive semantic HTML5 and CSS3
 
 ---
 
-## ✨ Features & Requirements Implemented
+## Features and Requirements Implemented
 
 1. **Display All Posts (`GET /` and `GET /posts`)**
    - Retrieves all posts in reverse chronological order (newest first).
@@ -32,13 +32,13 @@ The application allows users to create blog posts, view a list of all posts with
    - The **title of each post is clickable** and opens the full post page.
    - *Requirement Met:* Full content is **not** loaded or sent on the list page (`{'title': 1, 'author': 1, 'createdAt': 1}`).
 
-2. **Create a Post (`GET /posts/new` & `POST /posts`)**
+2. **Create a Post (`GET /posts/new` and `POST /posts`)**
    - Clean HTML form containing:
      - `Title` (validated, required)
      - `Author` (validated, required)
      - `Content` (validated, required)
      - Submit button
-   - Creation date & time is **automatically generated on the backend** (`datetime.now()`) and never entered via the form.
+   - Creation date and time is **automatically generated on the backend** (`datetime.now()`) and never entered via the form.
    - Redirects back to the posts list upon submission.
 
 3. **View Individual Post (`GET /posts/<id>`)**
@@ -51,7 +51,7 @@ The application allows users to create blog posts, view a list of all posts with
 
 ---
 
-## 🗂️ Folder Structure
+## Folder Structure
 
 ```text
 Backenddevelopment/
@@ -71,18 +71,18 @@ Backenddevelopment/
 
 ---
 
-## 🌐 Routes Implemented
+## Routes Implemented
 
 | Method | Route | Description |
 | :--- | :--- | :--- |
 | `GET` | `/` or `/posts` | Display all blog posts |
 | `GET` | `/posts/new` | Display the post creation form |
-| `POST` | `/posts` | Validate inputs & insert new post into MongoDB |
+| `POST` | `/posts` | Validate inputs and insert new post into MongoDB |
 | `GET` | `/posts/<id>` | Display complete content of an individual post |
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### 1. Prerequisites
 Ensure you have **Python 3.10+** and **MongoDB** installed.
