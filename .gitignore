@@ -1,12 +1,9 @@
-# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
 *.so
 
-# Distribution / packaging
 build/
 develop-eggs/
 dist/
@@ -25,7 +22,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual environments
 venv/
 env/
 ENV/
@@ -33,16 +29,13 @@ env.bak/
 venv.bak/
 .venv/
 
-# Environment variables & secrets
 .env
 .env.*
 !.env.example
 .flaskenv
 
-# Flask instance folder
 instance/
 
-# Unit test / coverage
 htmlcov/
 .tox/
 .nox/
@@ -56,13 +49,11 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# IDEs and Editors
 .vscode/
 .idea/
 *.sublime-workspace
 *.sublime-project
 
-# Operating System Files
 .DS_Store
 Thumbs.db
 desktop.ini

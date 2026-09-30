@@ -6,14 +6,10 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-# ---------------------------------------------------------
-# Database Initialization & Fallback Configuration
-# ---------------------------------------------------------
 use_mongo = False
 posts_collection = None
 
 try:
-    # Attempt to connect to local MongoDB with a 2-second timeout
     client = MongoClient('mongodb://127.0.0.1:27017/', serverSelectionTimeoutMS=2000)
     client.admin.command('ping')
     db = client['cms_lab']
@@ -24,12 +20,7 @@ except Exception:
     print("[CMS Lab] Local MongoDB is not reachable. Operating with in-memory storage mode.")
     print("[CMS Lab] Tip: To enable MongoDB, start the service with: net start MongoDB")
 
-# In-memory storage fallback if MongoDB is not running
 memory_posts = []
-
-# ---------------------------------------------------------
-# Routes
-# ---------------------------------------------------------
 
 @app.route('/')
 @app.route('/posts')
@@ -41,7 +32,6 @@ def get_posts():
             .sort('_id', -1)
         )
     else:
-        # Return posts in reverse order for newest first
         posts = [
             {
                 '_id': p['_id'],
@@ -102,9 +92,6 @@ def get_post(id):
     return render_template('post.html', post=post)
 
 
-# ---------------------------------------------------------
-# Application Entrypoint
-# ---------------------------------------------------------
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='127.0.0.1', port=port, debug=True)
