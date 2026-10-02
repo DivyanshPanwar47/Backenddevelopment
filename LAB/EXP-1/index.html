@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experiment 1: HTML5 elements and semantic page structure.">
+  <title>Experiment 1 | HTML5 Elements</title>
+  <style>
+    :root { font-family: Arial, sans-serif; color: #243044; background: #f3f6fa; }
+    body { max-width: 1050px; margin: auto; padding: 24px; line-height: 1.6; }
+    header, main, footer, section, article, aside { margin-bottom: 18px; }
+    header, footer { padding: 22px; color: white; background: #203a5f; border-radius: 12px; }
+    nav a { color: #d9e9ff; margin-right: 16px; }
+    section, article, aside, .panel { background: white; border: 1px solid #dce3ec; border-radius: 10px; padding: 18px; }
+    .columns { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 9px; border: 1px solid #ccd5e1; text-align: left; }
+    input, select, textarea, button { padding: 9px; margin: 5px 0; max-width: 100%; }
+    code, pre, kbd { background: #eef2f7; padding: 3px 6px; border-radius: 4px; }
+    figure { margin: 0; } figcaption { color: #65748a; font-size: .9rem; }
+    progress, meter { width: 180px; }
+    @media (max-width: 650px) { .columns { grid-template-columns: 1fr; } body { padding: 12px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <p><strong>BACKEND DEVELOPMENT LAB · EXPERIMENT 01</strong></p>
+    <h1>HTML5 Element Showcase</h1>
+    <p>A single page demonstrating semantic structure, text, lists, tables, forms, media and interactive HTML elements.</p>
+    <nav aria-label="Main navigation">
+      <a href="#text">Text</a><a href="#data">Table</a><a href="#form">Form</a><a href="#media">Media</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="text">
+      <h2>1. Text and semantic elements</h2>
+      <article>
+        <h3>Article heading</h3>
+        <p>This paragraph demonstrates <strong>strong importance</strong>, <em>emphasis</em>, <mark>highlighted text</mark>, <abbr title="HyperText Markup Language">HTML</abbr>, <sub>subscript</sub> and <sup>superscript</sup>.</p>
+        <p><del>Old information</del> <ins>Updated information</ins>. A keyboard shortcut can be shown as <kbd>Ctrl</kbd> + <kbd>S</kbd>.</p>
+        <blockquote cite="https://html.spec.whatwg.org/">HTML provides the structure and meaning of web content.</blockquote>
+        <p><code>&lt;main&gt;</code> identifies the dominant content of a document.</p>
+        <details><summary>What is semantic HTML?</summary><p>Semantic HTML uses elements whose names describe the meaning and role of their content.</p></details>
+      </article>
+      <div class="columns">
+        <section>
+          <h3>Lists</h3>
+          <ul><li>HTML structure</li><li>CSS presentation</li><li>JavaScript behaviour</li></ul>
+          <ol><li>Create the document</li><li>Add page content</li><li>Validate the markup</li></ol>
+          <dl><dt>HTML</dt><dd>Markup language for web documents.</dd><dt>DOM</dt><dd>Tree representation of a document.</dd></dl>
+        </section>
+        <aside><h3>Aside element</h3><p>This content is related to the main topic but is not part of the article's central flow.</p></aside>
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>2. Tabular data</h2>
+      <table>
+        <caption>Example course timetable</caption>
+        <thead><tr><th scope="col">Day</th><th scope="col">Subject</th><th scope="col">Duration</th></tr></thead>
+        <tbody><tr><td>Monday</td><td>Backend Development</td><td>1 hour</td></tr><tr><td>Wednesday</td><td>Programming Lab</td><td>2 hours</td></tr></tbody>
+        <tfoot><tr><th colspan="2">Total sessions</th><td>2</td></tr></tfoot>
+      </table>
+    </section>
+
+    <section id="form">
+      <h2>3. HTML5 form controls</h2>
+      <form id="sample-form">
+        <fieldset>
+          <legend>Student details</legend>
+          <label for="student-name">Name</label><br><input id="student-name" name="name" required placeholder="Enter your name"><br>
+          <label for="email">Email</label><br><input id="email" name="email" type="email" required placeholder="name@example.com"><br>
+          <label for="semester">Semester</label><br>
+          <select id="semester" name="semester"><option>Semester III</option><option>Semester IV</option><option>Semester V</option></select><br>
+          <label for="topic">Favourite topic</label><br><input id="topic" list="topics" name="topic"><datalist id="topics"><option value="HTML"><option value="CSS"><option value="JavaScript"></datalist><br>
+          <label for="message">Comments</label><br><textarea id="message" rows="3" placeholder="Write a short comment"></textarea><br>
+          <button type="submit">Submit</button><output id="form-result" aria-live="polite"></output>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="media">
+      <h2>4. Embedded and interactive content</h2>
+      <figure>
+        <svg width="260" height="100" role="img" aria-label="Simple blue and green geometric illustration" viewBox="0 0 260 100">
+          <rect width="260" height="100" rx="12" fill="#e8f0fb"/><circle cx="58" cy="50" r="30" fill="#3974b9"/><rect x="112" y="22" width="55" height="55" rx="8" fill="#48a078"/><path d="M195 75 L220 25 L245 75 Z" fill="#e3a43b"/>
+        </svg>
+        <figcaption>Vector illustration created with inline SVG.</figcaption>
+      </figure>
+      <p>Progress: <progress value="70" max="100">70%</progress> &nbsp; Skill level: <meter min="0" max="10" value="7">7 out of 10</meter></p>
+      <p><time datetime="2026-10-02">2 October 2026</time> · <bdi>HTML5</bdi></p>
+      <noscript>JavaScript is disabled. The static HTML content remains available.</noscript>
+    </section>
+  </main>
+
+  <footer><address>Prepared by Divyansh Panwar · B.Tech CSE (Core) · UPES Dehradun</address><small>Experiment 1 — HTML5 elements</small></footer>
+  <script>
+    document.getElementById("sample-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("form-result").textContent = " Form submitted successfully (demo).";
+    });
+  </script>
+</body>
+</html>
