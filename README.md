@@ -1,164 +1,141 @@
-# Backend Development - Simple CMS Lab
+# Backend Development | UPES Dehradun
 
-**Student Name:** Divyansh Panwar  
-**Course:** Backend Development  
-**Project:** Blog Content Management System (Simple CMS)  
-**Technology Stack:** Python (Flask), Jinja2 Templates, MongoDB (PyMongo)  
-**Repository:** https://github.com/DivyanshPanwar47/Backenddevelopment  
+<div align="center">
 
----
+## Backend Development Lab & Coursework
 
-## Repository Overview
+**B.Tech Computer Science and Engineering (Core) · Semester V**
 
-This repository contains backend development coursework, laboratory experiments, and examinations.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-To ensure clean project separation and avoid mixing current examination work with earlier coursework:
-* **`cms-lab/`**: Dedicated directory containing the complete Simple CMS Blog project (Python, Flask, Jinja2, MongoDB, CSS, templates, and requirements).
-* **`lab/`**: Earlier lab experiments and exercises.
-* **`theory/`**: Course theory materials and notes.
+</div>
 
 ---
 
-## Project Overview
+## Student Information
 
-A complete Blog Content Management System (CMS) developed for the Backend Development Lab Examination according to the official examination specification (Option B).
-
-The application allows users to create blog posts, display all posts in reverse chronological order with server-generated timestamps, and read full articles by clicking on their titles. Data is persistently stored in MongoDB.
-
----
-
-## Application Screenshots
-
-### 1. Posts List (Homepage)
-Displays all published posts in reverse chronological order (newest first). Only metadata (title, author, date) is loaded; full content is omitted on this view as per specification.
-
-![Posts List](cms-lab/screenshots/posts-list.png)
+| Detail | Information |
+|---|---|
+| **Name** | Divyansh Panwar |
+| **SAP ID** | 590018990 |
+| **Course** | Backend Development |
+| **Program** | B.Tech CSE (Core) |
+| **University** | UPES, Dehradun |
+| **Repository** | [Backenddevelopment](https://github.com/DivyanshPanwar47/Backenddevelopment) |
 
 ---
 
-### 2. View Individual Post
-Displays the full content of a selected post retrieved by its MongoDB unique identifier (`ObjectId`).
+## About This Repository
 
-![Individual Post View](cms-lab/screenshots/view-post.png)
+This repository contains my Backend Development coursework, laboratory experiments, reports and practical projects completed as part of the B.Tech CSE programme at UPES.
 
----
+The repository is organised so that each lab experiment has its own folder containing the working source files and a report describing its aim, concepts, implementation, observations and result.
 
-### 3. Create New Post
-Form allowing authors to input the post title, author name, and content. The creation timestamp is automatically generated on the backend and cannot be tampered with.
+## Lab Experiments
 
-![Create Post Form](cms-lab/screenshots/create-post.png)
-
----
-
-### 4. MongoDB Database (MongoDB Compass)
-Verification of persistent storage in the local MongoDB database (`cms_lab` database, `posts` collection) showing auto-assigned ObjectIds and timestamps.
-
-![MongoDB Compass](cms-lab/screenshots/mongodb-compass.png)
-
----
-
-## Features and Requirements Implemented
-
-1. **Display All Posts (`GET /` and `GET /posts`)**
-   * Retrieves all posts sorted in reverse chronological order (`.sort('_id', -1)`).
-   * Displays post **Title**, **Author**, and **Creation Date** (formatted as `DD Month YYYY`).
-   * Post titles are clickable links navigating to the full post view (`/posts/<id>`).
-   * Optimized query: Full content is excluded from the listing query (`{'title': 1, 'author': 1, 'createdAt': 1}`).
-
-2. **Create a Post (`GET /posts/new` and `POST /posts`)**
-   * Dedicated creation form with inputs for Title, Author, and Content.
-   * Input validation: Ensures all fields are non-empty after trimming whitespace.
-   * Server-side timestamp: Creation date and time is automatically assigned on the server (`datetime.now()`) and never accepted from client form input.
-   * Automatic redirect to the post list upon successful creation.
-
-3. **View Individual Post (`GET /posts/<id>`)**
-   * Retrieves and renders the complete post document from MongoDB using its unique `ObjectId`.
-   * Handles invalid or non-existent IDs gracefully with a clean "Post Not Found" view.
-
-4. **Database Persistence**
-   * Persists blog posts into a local MongoDB instance (`cms_lab` database, `posts` collection).
-   * Automatically falls back to in-memory storage if MongoDB is not running, ensuring uninterrupted functionality.
-
----
+| Exp. | Experiment | Course Outcome | Report | Source |
+|---|---|---|---|---|
+| 1 | Create a web page demonstrating HTML5 elements | CO2 | [View report](./LAB/EXP-1/report.md) | [Open page](./LAB/EXP-1/index.html) |
+| 2 | Demonstrate inline, internal and external CSS, selectors and layouts | CO2 | [View report](./LAB/EXP-2/report.md) | [Open page](./LAB/EXP-2/index.html) |
+| 3 | Design and build a responsive web page using HTML and CSS | CO2 | [View report](./LAB/EXP-3/README.md) | [Open page](./LAB/EXP-3/index.html) |
+| 4 | Create responsive pages using Bootstrap and Tailwind CSS | CO2 | [View report](./LAB/EXP-4/README.md) | [Open overview](./LAB/EXP-4/index.html) |
+| 12 | Build a Node.js and Express application with EJS views | Backend practical | [View report](./LAB/EXP-12/README.md) | [Application source](./LAB/EXP-12/app.js) |
 
 ## Repository Structure
 
 ```text
 Backenddevelopment/
+├── README.md
+├── .gitignore
 │
-├── README.md                           # Main repository documentation & overview
-├── .gitignore                          # Git ignore rules for Python & environment
+├── LAB/
+│   ├── EXP-1/
+│   │   ├── index.html
+│   │   └── report.md
+│   ├── EXP-2/
+│   │   ├── index.html
+│   │   ├── style.css
+│   │   └── report.md
+│   ├── EXP-3/
+│   │   ├── index.html
+│   │   ├── style.css
+│   │   └── README.md
+│   ├── EXP-4/
+│   │   ├── index.html
+│   │   ├── bootstrap.html
+│   │   ├── tailwind.html
+│   │   └── README.md
+│   └── EXP-12/
+│       ├── app.js
+│       ├── package.json
+│       ├── public/
+│       ├── views/
+│       └── README.md
 │
-├── cms-lab/                            # Dedicated CMS Lab Exam project folder
-│   ├── app.py                          # Flask application routes and database logic
-│   ├── requirements.txt                # Python package dependencies
-│   ├── README.md                       # Project-specific documentation
-│   │
+├── cms-lab/
+│   ├── README.md
+│   ├── app.py
+│   ├── requirements.txt
 │   ├── static/
-│   │   └── style.css                   # Custom responsive CSS styling
-│   │
 │   ├── templates/
-│   │   ├── posts.html                  # All posts listing template
-│   │   ├── post.html                   # Individual post detail template
-│   │   └── new-post.html               # Create new post form template
-│   │
-│   └── screenshots/                    # Application and database screenshots
-│       ├── posts-list.png              # Posts homepage view
-│       ├── view-post.png               # Single post view
-│       ├── create-post.png             # Create post form view
-│       └── mongodb-compass.png         # MongoDB Compass database view
+│   └── screenshots/
 │
-├── lab/                                # Earlier lab coursework (Exp 1)
-│   └── exp1/
-│       └── index.html
-│
-└── theory/                             # Earlier theory coursework
+└── theory/
 ```
+
+## Other Coursework
+
+### Simple CMS Blog Application
+
+The Backend Development lab examination project is maintained separately in **[`cms-lab/`](./cms-lab/)**. Its project-specific README, setup instructions, screenshots and Flask/MongoDB implementation are located inside that folder.
+
+### Theory Work
+
+The `theory/` directory is reserved for lecture exercises, notes and framework demonstrations.
+
+## Running the Experiments
+
+- **HTML/CSS experiments (1–4):** Open the relevant `index.html` file in a browser. Experiment 4 loads Bootstrap and Tailwind from CDNs, so an internet connection is required.
+- **Node.js experiment (12):** Open a terminal in `LAB/EXP-12`, run `npm install`, then `npm start`. Visit `http://localhost:3000`.
+- **CMS project:** Follow the instructions in [cms-lab/README.md](./cms-lab/README.md).
+
+## Technologies Used
+
+| Technology | Use |
+|---|---|
+| HTML5 | Page structure and semantic elements |
+| CSS3 | Styling, layouts, animation and responsive design |
+| JavaScript | Browser and server-side programming |
+| Bootstrap | Responsive UI framework |
+| Tailwind CSS | Utility-first CSS framework |
+| Node.js | JavaScript runtime |
+| Express.js | Backend web framework |
+| EJS | Server-side HTML templating |
+| Python / Flask | CMS backend |
+| MongoDB / PyMongo | CMS data storage |
+| Git and GitHub | Version control and repository hosting |
+
+## Learning Outcomes
+
+- Build structured web pages with semantic HTML5.
+- Apply CSS through inline, internal and external stylesheets.
+- Use CSS selectors, the box model, Flexbox and Grid.
+- Create responsive layouts for desktop, tablet and mobile screens.
+- Build interfaces with Bootstrap and Tailwind CSS.
+- Develop HTTP routes and APIs with Node.js and Express.
+- Process form data and render dynamic pages using EJS.
+- Organise practical work and document implementations using Git and GitHub.
 
 ---
 
-## Routes Implemented
+<div align="center">
 
-| HTTP Method | Route | Description |
-| :--- | :--- | :--- |
-| `GET` | `/` | Redirects / displays all blog posts in reverse chronological order |
-| `GET` | `/posts` | Displays all blog posts in reverse chronological order |
-| `GET` | `/posts/new` | Renders the HTML form to create a new post |
-| `POST` | `/posts` | Validates submitted form data, adds server timestamp, and saves to MongoDB |
-| `GET` | `/posts/<id>` | Retrieves and displays the full post by its MongoDB ObjectId |
+**Backend Development Coursework Repository**  
+**Divyansh Panwar · B.Tech CSE (Core) · UPES Dehradun**
 
----
-
-## How to Run the Application
-
-### 1. Prerequisites
-* Python 3.10 or higher
-* MongoDB Community Server 7.x / 8.x
-
-### 2. Navigate to Project Directory
-```bash
-cd cms-lab
-```
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Start MongoDB Server
-Ensure MongoDB is running locally on default port `27017`:
-```bash
-# Direct startup with custom data directory:
-mongod --dbpath C:\Users\divya\mongodb_data
-```
-
-### 5. Start the Flask Server
-```bash
-python app.py
-```
-
-### 6. Access in Browser
-Navigate to:
-```
-http://127.0.0.1:5000
-```
+</div>
