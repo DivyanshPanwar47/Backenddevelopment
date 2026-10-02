@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiment 2 | CSS Showcase</title>
+  <style>
+    .internal-card { border-left: 5px solid #d97706; background: #fff7e6; }
+    #special-note { color: #8b2d2d; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">BACKEND DEVELOPMENT LAB · EXPERIMENT 02</p>
+      <h1>Cascading Style Sheets</h1>
+      <p>One page demonstrating CSS methods, selectors, the box model, layouts and visual effects.</p>
+    </header>
+
+    <section class="section">
+      <h2>1. Three ways to apply CSS</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Inline CSS</h3>
+          <p style="color:#2563eb;font-weight:700">This paragraph uses an inline style attribute.</p>
+          <code>&lt;p style="color: blue"&gt;</code>
+        </article>
+        <article class="card internal-card">
+          <h3>Internal CSS</h3>
+          <p>This card is styled by the style element in the document head.</p>
+          <code>.internal-card { ... }</code>
+        </article>
+        <article class="card external-card">
+          <h3>External CSS</h3>
+          <p>The main layout and design are loaded from style.css.</p>
+          <code>&lt;link rel="stylesheet"&gt;</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="selectors">
+      <h2>2. CSS selectors</h2>
+      <p>Element selectors target tags; class selectors target reusable groups; ID selectors target one unique element.</p>
+      <p id="special-note">This sentence is selected by its ID.</p>
+      <div class="selector-demo"><p>This paragraph is selected as a descendant of selector-demo.</p></div>
+      <button class="demo-button">Hover over this button</button>
+    </section>
+
+    <section class="section">
+      <h2>3. The CSS box model</h2>
+      <div class="box-model"><div class="box-content">Content</div></div>
+      <p>Every element is laid out using content, padding, border and margin.</p>
+    </section>
+
+    <section class="section">
+      <h2>4. Flexbox and Grid</h2>
+      <h3>Flexbox — one-dimensional layout</h3>
+      <div class="flex-demo"><span>One</span><span>Two</span><span>Three</span><span>Four</span></div>
+      <h3>Grid — rows and columns</h3>
+      <div class="grid-demo"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    </section>
+
+    <section class="section">
+      <h2>5. Transition and animation</h2>
+      <div class="motion-row"><div class="motion-card">Hover to transition</div><div class="pulse">CSS animation</div></div>
+      <p class="note">The page also respects the reduced-motion preference configured in the operating system.</p>
+    </section>
+    <footer>Divyansh Panwar · SAP ID 590018990 · UPES Dehradun</footer>
+  </main>
+</body>
+</html>
