@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experiment 3: responsive page using semantic HTML and CSS.">
+  <title>Experiment 3 | Responsive Web Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">BACKEND DEVELOPMENT LAB · EXPERIMENT 03</p>
+        <h1>Design that adapts.</h1>
+        <p class="intro">A responsive interface keeps its content readable and usable across desktop, tablet and mobile screens.</p>
+        <nav aria-label="Page navigation"><a href="#principles">Principles</a><a href="#layout">Layout</a><a href="#result">Observation</a></nav>
+      </div>
+      <div class="device-art" aria-label="Illustration of desktop and mobile devices">
+        <div class="desktop"><div class="bar"></div><div class="screen-grid"><i></i><i></i><i></i></div></div>
+        <div class="phone"><div></div><i></i><i></i><i></i></div>
+      </div>
+    </header>
+    <main>
+      <section id="principles">
+        <p class="section-tag">01 / Core principles</p>
+        <h2>One page, different screens</h2>
+        <div class="features">
+          <article><span>01</span><h3>Flexible sizing</h3><p>Fluid widths and spacing make better use of the available viewport.</p></article>
+          <article><span>02</span><h3>CSS Grid</h3><p>Grid arranges content in columns that can change at suitable breakpoints.</p></article>
+          <article><span>03</span><h3>Flexbox</h3><p>Flexbox aligns navigation and smaller groups of interface elements.</p></article>
+          <article><span>04</span><h3>Media queries</h3><p>Media queries adapt the composition when the screen becomes narrower.</p></article>
+        </div>
+      </section>
+      <section id="layout" class="layout-section">
+        <div><p class="section-tag">02 / Responsive approach</p><h2>Built around the content</h2><p>The feature cards use CSS Grid. The navigation uses Flexbox and can wrap onto another line. The heading uses <code>clamp()</code> so its size scales within readable limits.</p></div>
+        <aside><h3>Viewport test</h3><p>Resize the browser window or open this page on a phone. The layout moves from four columns to two and then one column.</p><p class="status">Responsive layout enabled</p></aside>
+      </section>
+      <section id="result">
+        <p class="section-tag">03 / Observation</p><h2>Readable at every width</h2>
+        <p>Content remains in a logical order when the columns stack. No fixed page width is required, and the navigation wraps instead of overflowing.</p>
+      </section>
+    </main>
+    <footer>Divyansh Panwar · SAP ID 590018990 · B.Tech CSE (Core) · UPES Dehradun</footer>
+  </div>
+</body>
+</html>
