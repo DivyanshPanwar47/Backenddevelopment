@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= task ? task.title : "Backend Lab Tasks" %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="hero">
+  <p class="eyebrow">BACKEND DEVELOPMENT LAB · EXPERIMENT 12</p>
+  <h1>Node.js, Express and EJS</h1>
+  <p>Routes, request data, APIs and server-rendered pages.</p>
+  <div class="student"><strong><%= profile.name %></strong> · SAP ID <%= profile.rollNumber %> · <%= profile.branch %></div>
+</header>
+<main class="container">
+  <% if (!task) { %>
+    <section class="panel"><h2>Practical task directory</h2><p>Select a task to explore its implementation.</p>
+      <div class="task-grid"><% tasks.forEach(item => { %><a class="task-card" href="/task/<%= item.id %>"><span>Task 0<%= item.id %></span><h3><%= item.title %></h3><p><%= item.description %></p></a><% }) %></div>
+    </section>
+    <section class="panel"><h2>Profile API endpoints</h2><ul><li><a href="/api/profile/text">Plain text response</a></li><li><a href="/api/profile/html">HTML response</a></li><li><a href="/api/profile/json">JSON response</a></li></ul></section>
+  <% } else { %>
+    <p><a href="/">← Back to task directory</a></p>
+    <section class="panel"><p class="eyebrow">TASK 0<%= task.id %></p><h2><%= task.title %></h2><p><%= task.description %></p>
+    <% if (taskId === 1) { %>
+      <h3>Profile response formats</h3><p><a href="/api/profile/text">Text</a> · <a href="/api/profile/html">HTML</a> · <a href="/api/profile/json">JSON</a></p>
+      <pre><code>GET /api/profile/json</code></pre>
+    <% } else if (taskId === 2) { %>
+      <h3>Calculator</h3>
+      <form method="get" action="/task/2" id="calculator-form">
+        <label>First number<input name="first" type="number" step="any" required></label>
+        <label>Operation<select name="operation"><option value="add">Add</option><option value="subtract">Subtract</option><option value="multiply">Multiply</option><option value="divide">Divide</option><option value="modulus">Modulus</option><option value="power">Power</option></select></label>
+        <label>Second number<input name="second" type="number" step="any" required></label><button>Calculate</button>
+      </form>
+      <button type="button" id="api-calculator">Try JSON API example</button><pre id="api-output"></pre>
+      <% if (result !== null) { %><p class="success">Result: <strong><%= result %></strong></p><% } %>
+      <% if (error) { %><p class="error"><%= error %></p><% } %>
+    <% } else if (taskId === 3) { %>
+      <h3>Student records</h3><ul><% students.forEach(student => { %><li><%= student.name %> — <%= student.course %>, Semester <%= student.semester %> (ID <%= student.id %>)</li><% }) %></ul>
+      <h3>Add a student</h3><form id="student-form"><label>Name<input name="name" required></label><label>Course<input name="course" required></label><label>Semester<input name="semester" type="number" min="1" max="12" required></label><button>Add student</button></form><pre id="student-output"></pre>
+      <p>JSON endpoints: <a href="/students">all students</a> · <a href="/students/1">student with ID 1</a></p>
+    <% } else if (taskId === 4) { %>
+      <h3>Weekly timetable</h3><div class="table-wrap"><table><thead><tr><th>Day</th><th>Time</th><th>Subject</th><th>Faculty</th></tr></thead><tbody><% timetable.forEach(row => { %><tr><td><%= row.day %></td><td><%= row.time %></td><td><%= row.subject %></td><td><%= row.faculty %></td></tr><% }) %></tbody></table></div>
+    <% } else if (taskId === 5) { %>
+      <h3>Student registration form</h3><% if (error) { %><p class="error"><%= error %></p><% } %>
+      <form method="post" action="/student-registration"><label>Name<input name="name" value="<%= registration ? registration.name : '' %>" required></label><label>Email<input name="email" type="email" value="<%= registration ? registration.email : '' %>" required></label><label>Course<input name="course" value="<%= registration ? registration.course : '' %>" required></label><label>Semester<select name="semester" required><option value="">Choose semester</option><% for(let n=1;n<=8;n++){ %><option value="<%= n %>">Semester <%= n %></option><% } %></select></label><button>Submit registration</button></form>
+      <% if (registration && !error) { %><div class="success"><h3>Registration details received</h3><p><%= registration.name %> · <%= registration.email %> · <%= registration.course %> · Semester <%= registration.semester %></p></div><% } %>
+    <% } %>
+    </section>
+  <% } %>
+</main>
+<footer>Divyansh Panwar · Backend Development Lab · UPES Dehradun</footer>
+<script>
+const calcButton = document.getElementById("api-calculator");
+if (calcButton) calcButton.addEventListener("click", async () => {
+  const out = document.getElementById("api-output");
+  const response = await fetch("/api/calculator?operation=add&first=12&second=4");
+  out.textContent = JSON.stringify(await response.json(), null, 2);
+});
+const studentForm = document.getElementById("student-form");
+if (studentForm) studentForm.addEventListener("submit", async event => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(studentForm).entries());
+  const response = await fetch("/students/add", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+  document.getElementById("student-output").textContent = JSON.stringify(await response.json(), null, 2);
+  if (response.ok) studentForm.reset();
+});
+</script>
+</body></html>
