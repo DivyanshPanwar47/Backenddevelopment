@@ -1,0 +1,17 @@
+{
+  "name": "backend-development-exp-12",
+  "version": "1.0.0",
+  "description": "Express and EJS practical demonstrating routes, APIs, forms and server-rendered pages",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
