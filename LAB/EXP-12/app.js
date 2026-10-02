@@ -76,6 +76,13 @@ app.get("/", (req, res) => res.render("index", {
 app.get("/task/:id", (req, res) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id < 1 || id > 5) return res.status(404).send("Task not found");
+  if (id === 2 && Object.keys(req.query).length) {
+    const calculation = calculate(req.query);
+    return renderTask(res, id, {
+      result: calculation.value ?? null,
+      error: calculation.error || ""
+    }, calculation.error ? 400 : 200);
+  }
   return renderTask(res, id);
 });
 
