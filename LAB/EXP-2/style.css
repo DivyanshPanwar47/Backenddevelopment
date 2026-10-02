@@ -1,0 +1,35 @@
+:root {
+  --ink: #263246;
+  --muted: #627086;
+  --paper: #f2f5f9;
+  --accent: #2764a5;
+  --line: #d7e0eb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: var(--paper); color: var(--ink); font: 16px/1.6 Arial, sans-serif; }
+.container { max-width: 1000px; margin: auto; }
+.hero { padding: 34px; border-radius: 16px; background: #183653; color: white; }
+.hero h1 { margin: 6px 0; font-size: clamp(2rem, 5vw, 3.2rem); }
+.eyebrow { color: #a9d4ff; letter-spacing: .12em; font-size: .78rem; font-weight: bold; }
+.section { margin: 22px 0; padding: 24px; background: white; border: 1px solid var(--line); border-radius: 14px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.card { padding: 18px; border: 1px solid var(--line); border-radius: 10px; }
+.external-card { background: #edf5ff; border-top: 5px solid var(--accent); }
+.selector-demo { padding: 12px; background: #eef7f1; }
+.selector-demo p { color: #26744b; }
+.demo-button { border: 0; border-radius: 8px; padding: 10px 16px; background: var(--accent); color: white; cursor: pointer; transition: transform .2s, background .2s; }
+.demo-button:hover { background: #174574; transform: translateY(-3px); }
+.box-model { width: 230px; margin: 24px auto; padding: 20px; border: 8px solid #e0a33a; background: #dceaff; }
+.box-content { padding: 22px; text-align: center; background: white; }
+.flex-demo { display: flex; flex-wrap: wrap; gap: 12px; }
+.flex-demo span, .grid-demo span { padding: 18px; text-align: center; border-radius: 8px; background: #dceaff; }
+.grid-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.motion-row { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; }
+.motion-card { padding: 18px; background: #e5f0ff; border-radius: 10px; transition: transform .25s, box-shadow .25s; }
+.motion-card:hover { transform: scale(1.06); box-shadow: 0 10px 24px #18365325; }
+.pulse { width: 100px; height: 70px; display: grid; place-items: center; border-radius: 12px; background: #d7f2df; animation: pulse 2s ease-in-out infinite; font-size: .85rem; }
+@keyframes pulse { 50% { transform: translateY(-7px); } }
+.note, footer { color: var(--muted); }
+footer { padding: 14px 0; text-align: center; }
+@media (max-width: 720px) { body { padding: 12px; } .cards { grid-template-columns: 1fr; } .grid-demo { grid-template-columns: repeat(2, 1fr); } .hero, .section { padding: 18px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
