@@ -32,4 +32,10 @@ Open <http://localhost:3012>. Create a user, log in, add todos, and change the t
 | `GET /cookie/delete` | Clear the `theme` cookie |
 | `GET /logout` | Destroy the session |
 
+<img width="1917" height="1078" alt="Screenshot 2026-10-03 130001" src="https://github.com/user-attachments/assets/c1b2ca0a-395e-4c92-b5eb-ab725d0be784" />
+<img width="1917" height="1078" alt="Screenshot 2026-10-03 130019" src="https://github.com/user-attachments/assets/552446d8-253f-4161-8c72-29e8d0ec794d" />
+<img width="1917" height="1078" alt="Screenshot 2026-10-03 130048" src="https://github.com/user-attachments/assets/53a24fe1-be53-4936-a194-ef9983e4826f" />
+<img width="1917" height="1078" alt="Screenshot 2026-10-03 130111" src="https://github.com/user-attachments/assets/df3cc509-d81f-41a6-8304-f5532706b04a" />
+
+
 
