@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A localStorage-powered notes app built for Backend Development Assignment 1."
+    />
+    <title>Notes | Backend Development Assignment 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Backend Development · Assignment 1</p>
+          <h1>Notes that stay with you.</h1>
+          <p class="subtitle">
+            A focused notes board powered by browser storage. No account, server or
+            setup required.
+          </p>
+        </div>
+        <div class="header-actions">
+          <button class="button button-ghost" id="theme-toggle" type="button" aria-label="Switch theme">
+            <span aria-hidden="true">☼</span>
+            <span>Theme</span>
+          </button>
+          <button class="button button-ghost" id="export-button" type="button">
+            <span aria-hidden="true">↓</span>
+            <span>Export</span>
+          </button>
+          <label class="button button-ghost file-button" for="import-input">
+            <span aria-hidden="true">↑</span>
+            <span>Import</span>
+            <input id="import-input" type="file" accept="application/json,.json" />
+          </label>
+        </div>
+      </header>
+
+      <main>
+        <section class="workspace-grid" aria-label="Create a note">
+          <div class="panel composer-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="section-label">Capture an idea</p>
+                <h2 id="composer-title">Write a new note</h2>
+              </div>
+              <span class="keyboard-hint">Ctrl + Enter</span>
+            </div>
+
+            <form id="note-form">
+              <label class="sr-only" for="note-input">Note text</label>
+              <textarea
+                id="note-input"
+                rows="7"
+                maxlength="1000"
+                placeholder="What is on your mind?"
+                required
+              ></textarea>
+
+              <div class="composer-footer">
+                <div class="tag-input-wrapper">
+                  <label class="sr-only" for="tag-input">Tags</label>
+                  <span class="tag-prefix" aria-hidden="true">#</span>
+                  <input id="tag-input" type="text" maxlength="80" placeholder="tags, comma separated" />
+                </div>
+                <div class="composer-actions">
+                  <button class="button button-muted hidden" id="cancel-edit" type="button">Cancel</button>
+                  <button class="button button-primary" id="submit-button" type="submit">Add note <span aria-hidden="true">↗</span></button>
+                </div>
+              </div>
+              <p class="form-help">Your notes are stored locally in this browser.</p>
+            </form>
+          </div>
+
+          <aside class="panel stats-panel" aria-label="Notes overview">
+            <p class="section-label">Your workspace</p>
+            <div class="stat-main">
+              <strong id="total-count">0</strong>
+              <span>total notes</span>
+            </div>
+            <div class="stat-row">
+              <span><span class="status-dot status-dot-active"></span> Active</span>
+              <strong id="active-count">0</strong>
+            </div>
+            <div class="stat-row">
+              <span><span class="status-dot status-dot-complete"></span> Completed</span>
+              <strong id="completed-count">0</strong>
+            </div>
+            <div class="storage-callout">
+              <span class="storage-icon" aria-hidden="true">◌</span>
+              <div>
+                <strong>Saved locally</strong>
+                <p>Refresh the page and your notes will still be here.</p>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="notes-section" aria-labelledby="notes-heading">
+          <div class="section-toolbar">
+            <div>
+              <p class="section-label">Your collection</p>
+              <h2 id="notes-heading">All notes</h2>
+            </div>
+            <div class="toolbar-controls">
+              <label class="search-field">
+                <span class="sr-only">Search notes</span>
+                <span aria-hidden="true">⌕</span>
+                <input id="search-input" type="search" placeholder="Search notes..." />
+              </label>
+              <label class="select-field">
+                <span class="sr-only">Filter notes</span>
+                <select id="filter-select">
+                  <option value="all">All notes</option>
+                  <option value="active">Active</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span class="sr-only">Sort notes</span>
+                <select id="sort-select">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="updated">Recently updated</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+          <div class="notes-list" id="notes-list" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>Divyansh Panwar · SAP ID 590018990</span>
+        <span>HTML · CSS · JavaScript · localStorage</span>
+      </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
