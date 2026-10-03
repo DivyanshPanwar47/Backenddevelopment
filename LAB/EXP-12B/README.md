@@ -31,3 +31,9 @@ Open <http://localhost:3012>. Create a user, log in, add todos, and change the t
 | `GET /cookie/get` | Read the `theme` cookie |
 | `GET /cookie/delete` | Clear the `theme` cookie |
 | `GET /logout` | Destroy the session |
+##Screenshots
+C:\Users\divya\OneDrive\Documents\Backend\cms-lab\LAB\EXP-12B\ss\Screenshot 2026-10-03 130001.png
+C:\Users\divya\OneDrive\Documents\Backend\cms-lab\LAB\EXP-12B\ss\Screenshot 2026-10-03 130019.png
+C:\Users\divya\OneDrive\Documents\Backend\cms-lab\LAB\EXP-12B\ss\Screenshot 2026-10-03 130048.png
+C:\Users\divya\OneDrive\Documents\Backend\cms-lab\LAB\EXP-12B\ss\Screenshot 2026-10-03 130111.png
+
