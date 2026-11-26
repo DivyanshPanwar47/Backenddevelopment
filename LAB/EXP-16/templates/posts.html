@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Posts - CMS Lab{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <p class="eyebrow">Containerized content management system</p>
+        <h1>Posts</h1>
+    </div>
+    <a class="btn btn-primary" href="{{ url_for('new_post') }}">+ New Post</a>
+</div>
+
+<section class="posts-grid" aria-label="Published posts">
+    {% for post in posts %}
+    <article class="post-card">
+        <h2 class="post-title">
+            <a href="{{ url_for('get_post', post_id=post._id) }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-meta">
+            <span class="author">By {{ post.author }}</span>
+            <span aria-hidden="true">&bull;</span>
+            <time datetime="{{ post.createdAt }}">{{ post.createdAt }}</time>
+        </div>
+    </article>
+    {% else %}
+    <div class="empty-box">
+        <p>No posts published yet.</p>
+        <a class="btn btn-primary" href="{{ url_for('new_post') }}">Create the first post</a>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

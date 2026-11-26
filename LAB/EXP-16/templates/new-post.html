@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Create Post - CMS Lab{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <p class="eyebrow">Write something worth publishing</p>
+    <h1>Create Post</h1>
+
+    {% if error %}
+    <div class="alert" role="alert">{{ error }}</div>
+    {% endif %}
+
+    <form action="{{ url_for('create_post') }}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" value="{{ form_data.get('title', '') }}" required>
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input id="author" name="author" class="form-control" value="{{ form_data.get('author', '') }}" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" class="form-control" rows="9" required>{{ form_data.get('content', '') }}</textarea>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Publish Post</button>
+            <a class="btn btn-secondary" href="{{ url_for('get_posts') }}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

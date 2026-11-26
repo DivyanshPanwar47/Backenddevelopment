@@ -44,6 +44,7 @@ Each experiment is organised in its own folder under `LAB/`. Depending on the ta
 | 13 | Install and connect MongoDB | MongoDB Community Server, mongosh, Compass, Atlas and Mongoose | [Setup guide](./LAB/EXP-13/README.md) | Documentation-based experiment |
 | 13A | MongoDB user registration and login | Express, Mongoose, bcrypt and JWT authentication | [README](./LAB/EXP-13A/README.md) | [Server](./LAB/EXP-13A/server.js) |
 | 13B | MongoDB registration and Todo application | Protected Todo REST API, CRUD and user ownership | [README](./LAB/EXP-13B/README.md) | [Server](./LAB/EXP-13B/server.js) |
+| 16 | Containerized CMS deployment PBL | Docker, Compose, route automation and GitHub Actions CI/CD | [README](./LAB/EXP-16/README.md) | [CMS deployment](./LAB/EXP-16/) |
 
 ## Repository Structure
 
