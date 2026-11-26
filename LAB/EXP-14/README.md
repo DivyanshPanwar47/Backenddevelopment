@@ -59,3 +59,4 @@ For this student data, PostgreSQL gives strong constraints, unique email validat
 ## Notes
 
 The database servers are intentionally not installed by this repository exercise. The scripts are ready to run once PostgreSQL and MongoDB are available locally or through Atlas.
+

@@ -44,6 +44,8 @@ Each experiment is organised in its own folder under `LAB/`. Depending on the ta
 | 13 | Install and connect MongoDB | MongoDB Community Server, mongosh, Compass, Atlas and Mongoose | [Setup guide](./LAB/EXP-13/README.md) | Documentation-based experiment |
 | 13A | MongoDB user registration and login | Express, Mongoose, bcrypt and JWT authentication | [README](./LAB/EXP-13A/README.md) | [Server](./LAB/EXP-13A/server.js) |
 | 13B | MongoDB registration and Todo application | Protected Todo REST API, CRUD and user ownership | [README](./LAB/EXP-13B/README.md) | [Server](./LAB/EXP-13B/server.js) |
+| 14 | PostgreSQL and MongoDB student data comparison | SQL CRUD, MongoDB CRUD and PostgreSQL JSONB | [README](./LAB/EXP-14/README.md) | Documentation |
+| 15 | Django Todo application | SQLite CRUD, Admin, template inheritance and static files | [README](./LAB/EXP-15/README.md) | Documentation |
 | 16 | Containerized CMS deployment PBL | Docker, Compose, route automation and GitHub Actions CI/CD | [README](./LAB/EXP-16/README.md) | [CMS deployment](./LAB/EXP-16/) |
 
 ## Repository Structure
@@ -99,15 +101,19 @@ Backenddevelopment/
 │   │   ├── package-lock.json
 │   │   ├── .env.example
 │   │   └── README.md
-│   └── EXP-13B/
-│       ├── config/
-│       ├── middleware/
-│       ├── models/
-│       ├── routes/
-│       ├── server.js
-│       ├── package.json
-│       ├── package-lock.json
-│       ├── .env.example
+│   ├── EXP-13B/
+│   │   ├── config/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── server.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── .env.example
+│   │   └── README.md
+│   ├── EXP-14/
+│   │   └── README.md
+│   └── EXP-15/
 │       └── README.md
 │
 ├── cms-lab/
@@ -130,6 +136,8 @@ Backenddevelopment/
 - **Experiment 13:** Follow the MongoDB installation and connection steps in [its setup guide](./LAB/EXP-13/README.md).
 - **Experiment 13A:** Configure `MONGODB_URI` and `JWT_SECRET` in a local `.env` file, then follow [the experiment README](./LAB/EXP-13A/README.md). The API uses port 3013.
 - **Experiment 13B:** Configure the local `.env` file and MongoDB connection, then follow [the experiment README](./LAB/EXP-13B/README.md). The API uses port 3014.
+- **Experiment 14:** Follow the setup, PostgreSQL and MongoDB query examples in [its README](./LAB/EXP-14/README.md).
+- **Experiment 15:** Follow the Django setup, migration, test and run instructions in [its README](./LAB/EXP-15/README.md).
 - **CMS project:** Follow the instructions in [cms-lab/README.md](./cms-lab/README.md).
 
 For experiments that use environment variables, keep real credentials in the local `.env` file. Do not commit database passwords, JWT secrets or other private credentials.
@@ -149,8 +157,10 @@ For experiments that use environment variables, keep real credentials in the loc
 | Express sessions and cookies | Session and browser state management |
 | MongoDB | NoSQL database |
 | Mongoose | MongoDB object modelling for Node.js |
+| PostgreSQL | Relational database, SQL CRUD and JSONB |
 | bcrypt | Password hashing |
 | JSON Web Tokens (JWT) | Token-based API authentication |
+| Django | SQLite-backed Todo application and Admin |
 | Python / Flask | CMS backend |
 | PyMongo | MongoDB access from Python |
 | Git and GitHub | Version control and repository hosting |
@@ -167,6 +177,8 @@ For experiments that use environment variables, keep real credentials in the loc
 - Install, configure and connect to MongoDB.
 - Build registration and login APIs with password hashing and JWT authentication.
 - Develop protected CRUD endpoints and associate records with authenticated users.
+- Compare relational PostgreSQL queries with MongoDB documents and JSONB.
+- Build a Django Todo application with SQLite, Admin, reusable templates and static files.
 - Organise practical work and document implementations using Git and GitHub.
 
 ---
@@ -177,3 +189,4 @@ For experiments that use environment variables, keep real credentials in the loc
 **Divyansh Panwar · B.Tech CSE (Core) · UPES Dehradun**
 
 </div>
+
