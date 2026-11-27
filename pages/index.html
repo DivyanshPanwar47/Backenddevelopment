@@ -60,6 +60,67 @@
         box-shadow: 0 12px 30px rgb(35 49 80 / 8%);
       }
 
+      section {
+        margin-top: 2.5rem;
+      }
+
+      section > h2 {
+        margin-bottom: 0.75rem;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        background: #fff;
+        border: 1px solid #dce3ef;
+        border-radius: 1rem;
+        box-shadow: 0 12px 30px rgb(35 49 80 / 6%);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 680px;
+      }
+
+      th,
+      td {
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid #e7ebf3;
+        text-align: left;
+        vertical-align: top;
+        line-height: 1.45;
+      }
+
+      th {
+        color: #34425b;
+        background: #f8faff;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .plain-list {
+        margin: 0;
+        padding-left: 1.2rem;
+        line-height: 1.65;
+      }
+
+      pre {
+        overflow-x: auto;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        color: #dbe5ff;
+        background: #172033;
+        line-height: 1.45;
+      }
+
       h2 {
         margin-top: 0;
       }
@@ -95,30 +156,114 @@
   <body>
     <main>
       <div class="eyebrow">Backend Development · UPES Dehradun</div>
-      <h1>Theory Assignments</h1>
+      <h1>Backend Development Lab &amp; Coursework</h1>
       <p class="intro">
-        Browse the submitted reports, source files and the live Notes App from one place.
+        This page presents the README overview for Divyansh Panwar's Backend Development coursework,
+        including theory assignments, laboratory experiments, reports and practical projects.
       </p>
 
-      <section class="grid" aria-label="Assignments">
-        <article class="card">
-          <h2>Assignment 1 · Notes App</h2>
-          <p>A responsive HTML, CSS and JavaScript notes application with localStorage persistence.</p>
-          <div class="links">
-            <a class="button" href="./assignment-1/">Open live app</a>
-            <a href="https://github.com/DivyanshPanwar47/Backenddevelopment/blob/main/theory%20assignment/Assignment%201%20-%20Notes%20App/README.md">Report</a>
-            <a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/theory%20assignment/Assignment%201%20-%20Notes%20App">Source</a>
-          </div>
-        </article>
+      <section aria-labelledby="student-heading">
+        <h2 id="student-heading">Student Information</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Detail</th><th>Information</th></tr>
+            <tr><td><strong>Name</strong></td><td>Divyansh Panwar</td></tr>
+            <tr><td><strong>SAP ID</strong></td><td>590018990</td></tr>
+            <tr><td><strong>Course</strong></td><td>Backend Development</td></tr>
+            <tr><td><strong>Program</strong></td><td>B.Tech CSE (Core)</td></tr>
+            <tr><td><strong>University</strong></td><td>UPES, Dehradun</td></tr>
+          </table>
+        </div>
+      </section>
 
-        <article class="card">
-          <h2>Assignment 2 · PostgreSQL JSONB</h2>
-          <p>A theory and practical submission covering PostgreSQL JSONB, SQL, NoSQL and GIN indexing.</p>
-          <div class="links">
-            <a class="button" href="https://github.com/DivyanshPanwar47/Backenddevelopment/blob/main/theory%20assignment/590018990_assignment2.md">Open report</a>
-            <a href="https://github.com/DivyanshPanwar47/Backenddevelopment/blob/main/theory%20assignment/590018990_assignment2.md">Source</a>
-          </div>
-        </article>
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">About This Repository</h2>
+        <p>
+          This repository contains Backend Development coursework, laboratory experiments, reports and
+          practical projects completed as part of the B.Tech CSE programme at UPES. Each experiment is
+          organised in its own folder with source code, setup instructions, API examples, screenshots or
+          a report describing the implementation.
+        </p>
+      </section>
+
+      <section aria-labelledby="assignments-heading">
+        <h2 id="assignments-heading">Theory Assignments</h2>
+        <div class="grid" aria-label="Theory assignments">
+          <article class="card">
+            <h3>Assignment 1 · Notes App</h3>
+            <p>A responsive HTML, CSS and JavaScript notes application with localStorage persistence.</p>
+            <div class="links">
+              <a class="button" href="./assignment-1/">Open live app</a>
+              <a href="https://github.com/DivyanshPanwar47/Backenddevelopment/blob/main/theory%20assignment/Assignment%201%20-%20Notes%20App/README.md">Report</a>
+              <a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/theory%20assignment/Assignment%201%20-%20Notes%20App">Source</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Assignment 2 · PostgreSQL JSONB</h3>
+            <p>A theory and practical submission covering PostgreSQL JSONB, SQL, NoSQL and GIN indexing.</p>
+            <div class="links">
+              <a class="button" href="https://github.com/DivyanshPanwar47/Backenddevelopment/blob/main/theory%20assignment/590018990_assignment2.md">Open report</a>
+              <a href="https://github.com/DivyanshPanwar47/Backenddevelopment/blob/main/theory%20assignment/590018990_assignment2.md">Source</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="labs-heading">
+        <h2 id="labs-heading">Lab Experiments</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Exp.</th><th>Experiment</th><th>Main topics</th><th>Links</th></tr>
+            <tr><td>1</td><td>Create a web page demonstrating HTML5 elements</td><td>Semantic HTML5 and page structure</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-1">Report and source</a></td></tr>
+            <tr><td>2</td><td>Demonstrate CSS types, selectors and layouts</td><td>Inline, internal and external CSS</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-2">Report and source</a></td></tr>
+            <tr><td>3</td><td>Design and build a responsive web page</td><td>HTML and responsive CSS</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-3">README and source</a></td></tr>
+            <tr><td>4</td><td>Create responsive pages using Bootstrap and Tailwind CSS</td><td>Bootstrap and Tailwind</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-4">README and source</a></td></tr>
+            <tr><td>5</td><td>JavaScript arrays, objects and functions</td><td>Array/object operations and functions</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-5">README and source</a></td></tr>
+            <tr><td>12</td><td>Build a Node.js and Express application with EJS views</td><td>Express routes and server-side templating</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-12">README and source</a></td></tr>
+            <tr><td>12B</td><td>Sessions, cookies and state management</td><td>Login sessions, session todos and theme cookies</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-12B">README and source</a></td></tr>
+            <tr><td>13</td><td>Install and connect MongoDB</td><td>MongoDB, mongosh, Compass, Atlas and Mongoose</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-13">Setup guide</a></td></tr>
+            <tr><td>13A</td><td>MongoDB user registration and login</td><td>Express, Mongoose, bcrypt and JWT authentication</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-13A">README and source</a></td></tr>
+            <tr><td>13B</td><td>MongoDB registration and Todo application</td><td>Protected Todo REST API and CRUD</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-13B">README and source</a></td></tr>
+            <tr><td>14</td><td>PostgreSQL and MongoDB student data comparison</td><td>SQL CRUD, MongoDB CRUD and PostgreSQL JSONB</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-14">README and source</a></td></tr>
+            <tr><td>15</td><td>Django Todo application</td><td>SQLite CRUD, Admin, templates and static files</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-15">README and source</a></td></tr>
+            <tr><td>16</td><td>Containerized CMS deployment PBL</td><td>Docker, Compose, route automation and GitHub Actions</td><td><a href="https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/LAB/EXP-16">README and source</a></td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="running-heading">
+        <h2 id="running-heading">Running the Experiments</h2>
+        <ul class="plain-list">
+          <li>Experiments 1–4: open the relevant HTML file in a browser.</li>
+          <li>Experiment 5: open its HTML file and use the developer console, or run the scripts with Node.js.</li>
+          <li>Experiments 12 and 12B: install dependencies, configure environment variables and run the Node.js server.</li>
+          <li>Experiments 13A, 13B, 14 and 15: follow the setup instructions in each experiment README.</li>
+          <li>Keep real credentials in local environment files; do not commit database passwords or JWT secrets.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="technologies-heading">
+        <h2 id="technologies-heading">Technologies Used</h2>
+        <div class="two-column">
+          <div class="card"><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap and Tailwind CSS.</div>
+          <div class="card"><strong>Backend:</strong> Node.js, Express.js, EJS, Django and Python / Flask.</div>
+          <div class="card"><strong>Databases:</strong> SQLite, MongoDB, Mongoose and PostgreSQL with JSONB.</div>
+          <div class="card"><strong>Security and tooling:</strong> bcrypt, JWT, Git, GitHub, Docker and GitHub Actions.</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="outcomes-heading">
+        <h2 id="outcomes-heading">Learning Outcomes</h2>
+        <ul class="plain-list">
+          <li>Build structured web pages with semantic HTML5 and responsive CSS.</li>
+          <li>Use JavaScript arrays, objects, functions and browser storage.</li>
+          <li>Develop HTTP routes and dynamic pages using Node.js, Express and EJS.</li>
+          <li>Manage sessions, cookies, authentication and protected CRUD endpoints.</li>
+          <li>Compare relational PostgreSQL queries with MongoDB documents and JSONB.</li>
+          <li>Build a Django Todo application with SQLite, Admin, templates and static files.</li>
+          <li>Organise practical work and document implementations using Git and GitHub.</li>
+        </ul>
       </section>
 
       <footer>
