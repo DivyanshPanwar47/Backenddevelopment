@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Microservices Service Discovery</title>
+  <style>
+    :root { --ink: #edf4ff; --muted: #a9bdd6; --blue: #68a4ff; --cyan: #63e6d4; --bg: #0b1324; --panel: #111e35; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: Segoe UI, Inter, Arial, sans-serif; }
+    body { scroll-snap-type: y mandatory; overflow-y: scroll; }
+    section { min-height: 100vh; padding: 8vh 10vw 7vh; display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; border-bottom: 1px solid #203453; }
+    section.cover { background: radial-gradient(circle at 80% 20%, #163c69 0, transparent 35%), var(--bg); }
+    .kicker { color: var(--cyan); font-size: 1rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+    h1 { max-width: 900px; margin: .4rem 0 1rem; color: #fff; font-size: clamp(2.8rem, 7vw, 6.4rem); line-height: .98; letter-spacing: -.045em; }
+    h2 { max-width: 900px; margin: 0 0 1.5rem; color: #fff; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.05; letter-spacing: -.03em; }
+    h3 { color: var(--cyan); font-size: 1.15rem; margin: 1.1rem 0 .5rem; }
+    p, li { max-width: 900px; color: var(--muted); font-size: clamp(1.05rem, 1.7vw, 1.45rem); line-height: 1.45; }
+    ul, ol { margin: .2rem 0 0 1.2rem; padding: 0; }
+    li { margin: .55rem 0; }
+    strong { color: #fff; }
+    code, pre { font-family: Consolas, "Courier New", monospace; }
+    pre { margin: 1rem 0; max-width: 1000px; overflow: auto; padding: 1.2rem 1.4rem; border-left: 4px solid var(--blue); background: var(--panel); color: #d8e8ff; font-size: clamp(.85rem, 1.5vw, 1.2rem); line-height: 1.45; white-space: pre-wrap; }
+    a { color: var(--blue); }
+    .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4vw; max-width: 1100px; }
+    .source { margin-top: auto; padding-top: 2rem; color: #7890ae; font-size: .85rem; }
+    .source a { color: #94bfff; }
+    .number { position: absolute; right: 4vw; bottom: 3vh; color: #5e7697; font-size: .8rem; }
+    @media (max-width: 700px) { section { padding: 7vh 7vw; } .columns { grid-template-columns: 1fr; } }
+    @media print { body { overflow: visible; } section { min-height: 100vh; page-break-after: always; } }
+  </style>
+</head>
+<body>
+  <section class="cover"><div class="kicker">Assignment III · Topic 4</div><h1>Microservices<br>Service Discovery</h1><p>Divyansh Panwar · SAP ID 590018990 · Backend Development</p><p class="source">Use the arrow keys or scroll to move through the deck. Print to PDF from the browser.</p><span class="number">1</span></section>
+  <section><h2>The problem: instance addresses change</h2><ul><li>Instances are created, removed and restarted during normal operation.</li><li>IP addresses and ports are deployment details.</li><li>Hard-coded addresses couple callers to one instance.</li><li>Failed instances must leave the traffic pool quickly.</li></ul><pre>checkout-service  →  http://10.0.2.17:8080&#10;                         restart or scale&#10;checkout-service  →  which address is healthy now?</pre><span class="number">2</span></section>
+  <section><h2>The service discovery lifecycle</h2><pre>service starts&#10;     |&#10;register identity, address and health check&#10;     |&#10;registry records the instance&#10;     |&#10;consumer asks for a service by name&#10;     |&#10;healthy instance receives traffic&#10;     |&#10;heartbeat fails or service stops&#10;     |&#10;registry removes the instance from results</pre><p>The registry turns a changing network into a stable service name.</p><p class="source">Source: <a href="https://developer.hashicorp.com/consul/docs/use-case/service-discovery">Consul service discovery</a></p><span class="number">3</span></section>
+  <section><h2>Two discovery patterns</h2><div class="columns"><div><h3>Client-side discovery</h3><p>The caller queries the registry, chooses a healthy instance and sends the request directly.</p><p>The client owns discovery-aware load balancing.</p></div><div><h3>Server-side discovery</h3><p>The caller sends the request to an intermediary.</p><p>The intermediary queries the registry and routes traffic to a healthy instance.</p></div></div><p class="source">Source: <a href="https://developer.hashicorp.com/consul/docs/use-case/service-discovery">Consul discovery patterns</a></p><span class="number">4</span></section>
+  <section><h2>Kubernetes: discovery through Services and DNS</h2><pre>orders-api  →  orders.prod.svc.cluster.local&#10;                         |&#10;                    Kubernetes Service&#10;                         |&#10;              EndpointSlices for ready Pods</pre><ul><li>A Service provides a stable name and virtual address.</li><li>Cluster DNS resolves the Service name.</li><li>EndpointSlices track the Pods behind the Service.</li><li>Callers do not need Pod IP addresses.</li></ul><p class="source">Source: <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Kubernetes Services</a></p><span class="number">5</span></section>
+  <section><h2>Consul: catalog plus health checks</h2><ol><li>Define the service and its health checks.</li><li>Register the definition with a Consul agent.</li><li>Query healthy instances through DNS or the HTTP API.</li></ol><p>Consul agents update catalog health and replicate server state with Raft. DNS queries can return only instances that are currently eligible for traffic.</p><p class="source">Source: <a href="https://developer.hashicorp.com/consul/docs/register">Consul registration</a></p><span class="number">6</span></section>
+  <section><h2>Eureka: client-driven discovery</h2><ul><li>A client registers metadata such as host, port and health URL.</li><li>Clients send periodic heartbeats.</li><li>Consumers query the registry through <code>DiscoveryClient</code>.</li><li>Eureka servers can replicate registry state for availability.</li><li>Failed heartbeats lead to instance removal after the configured lease window.</li></ul><p class="source">Source: <a href="https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/index.html">Spring Cloud Netflix Eureka</a></p><span class="number">7</span></section>
+  <section><h2>Failure handling and security</h2><ul><li>Use readiness checks that represent real request capability.</li><li>Expire stale records and use bounded caches.</li><li>Retry with backoff, then use a circuit breaker.</li><li>Keep a safe response when the registry is unavailable.</li><li>Secure registry APIs with TLS and ACLs or service identity.</li><li>Discovery is routing, not authorization.</li></ul><span class="number">8</span></section>
+  <section><h2>A practical student-platform design</h2><pre>web client&#10;    |&#10;API gateway&#10;    |&#10;service discovery&#10;  /       |          \&#10;users  courses   notifications&#10;  |       |          |&#10;health  health    health</pre><p>Use Kubernetes Service and DNS in a cluster. Use Consul for mixed VMs and containers. Use Eureka when the services already use Spring Cloud.</p><p>Keep service names stable, expose health endpoints and make callers tolerate temporary discovery failure.</p><span class="number">9</span></section>
+  <section><h2>Viva questions</h2><p><strong>Why is service discovery needed?</strong> It maps a stable service identity to changing healthy instances.</p><p><strong>Client-side versus server-side?</strong> The client selects an instance in the first pattern. An intermediary selects one in the second.</p><p><strong>Is it the same as load balancing?</strong> No. Discovery finds instances. Load balancing distributes traffic.</p><p><strong>Does it provide security?</strong> No. TLS, identity, authentication and authorization still protect requests.</p><span class="number">10</span></section>
+  <section><h2>References</h2><ul><li><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Kubernetes Services</a></li><li><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">Kubernetes DNS for Services and Pods</a></li><li><a href="https://developer.hashicorp.com/consul/docs/use-case/service-discovery">Consul Service Discovery Explained</a></li><li><a href="https://developer.hashicorp.com/consul/docs/register">Consul Register Services</a></li><li><a href="https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/index.html">Spring Cloud Netflix Eureka</a></li></ul><p>These references document the discovery behavior of Kubernetes, Consul and Eureka directly.</p><span class="number">11</span></section>
+</body>
+</html>

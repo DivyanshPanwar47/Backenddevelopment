@@ -1,4 +1,4 @@
-name: Deploy Assignment 1 to GitHub Pages
+name: Deploy coursework to GitHub Pages
 
 on:
   push:
@@ -6,6 +6,12 @@ on:
     paths:
       - "theory assignment/Assignment 1 - Notes App/**"
       - "theory assignment/590018990_assignment2.md"
+      - "theory assignment/README.md"
+      - "theory assignment/Unit 1/**"
+      - "theory assignment/Unit 2/**"
+      - "theory assignment/Unit 3/**"
+      - "theory assignment/Unit 4/**"
+      - "theory assignment/Unit 5/**"
       - "LAB/**/README.md"
       - "LAB/**/report.md"
       - "pages/index.html"
@@ -42,6 +48,12 @@ jobs:
           cp "pages/report.html" "_site/report.html"
           cp "theory assignment/Assignment 1 - Notes App/README.md" "_site/_reports/assignment-1.md"
           cp "theory assignment/590018990_assignment2.md" "_site/_reports/assignment-2.md"
+          cp "theory assignment/Unit 5/Assignment 3 - Microservices Service Discovery/README.md" "_site/_reports/assignment-3.md"
+          cp "theory assignment/Unit 1/README.md" "_site/_reports/unit-1.md"
+          cp "theory assignment/Unit 2/README.md" "_site/_reports/unit-2.md"
+          cp "theory assignment/Unit 3/README.md" "_site/_reports/unit-3.md"
+          cp "theory assignment/Unit 4/README.md" "_site/_reports/unit-4.md"
+          cp "theory assignment/Unit 5/README.md" "_site/_reports/unit-5.md"
           cp "LAB/EXP-1/report.md" "_site/_reports/exp-1.md"
           cp "LAB/EXP-2/report.md" "_site/_reports/exp-2.md"
           cp "LAB/EXP-3/README.md" "_site/_reports/exp-3.md"

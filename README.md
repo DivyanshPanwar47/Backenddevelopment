@@ -37,6 +37,16 @@ Each experiment is organised in its own folder under `LAB/`. Depending on the ta
 | **Assignment 1 – Notes App** | [Open report](./theory%20assignment/Assignment%201%20-%20Notes%20App/README.md) | [View source](https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/theory%20assignment/Assignment%201%20-%20Notes%20App) | [Open live app](https://divyanshpanwar47.github.io/Backenddevelopment/assignment-1/) |
 | **Assignment 2 – PostgreSQL JSONB** | [Open report / submission](./theory%20assignment/590018990_assignment2.md) | [View Markdown source](./theory%20assignment/590018990_assignment2.md) | — |
 
+### Unit-wise theory assignments
+
+| Unit | Coursework | Documentation | Source / related work |
+|---|---|---|---|
+| 1 | Notes App | [Unit 1 overview](./theory%20assignment/Unit%201/README.md) | [Unit 1 files](./theory%20assignment/Unit%201/) |
+| 2 | PostgreSQL JSONB and MongoDB comparison | [Unit 2 overview](./theory%20assignment/Unit%202/README.md) | [Unit 2 files](./theory%20assignment/Unit%202/) |
+| 3 | Frameworks, middleware, APIs, testing, security and caching | [Unit 3 overview](./theory%20assignment/Unit%203/README.md) | [Related lab work](./LAB/) |
+| 4 | Deployment, Docker, monitoring, scaling and CI/CD | [Unit 4 overview](./theory%20assignment/Unit%204/README.md) | [EXP-16 PBL](./LAB/EXP-16/README.md) |
+| 5 | Microservices service discovery presentation | [Unit 5 overview](./theory%20assignment/Unit%205/README.md) | [Presentation files](./theory%20assignment/Unit%205/Assignment%203%20-%20Microservices%20Service%20Discovery/) |
+
 ## Lab Experiments
 
 | Exp. | Experiment | Main topics | Documentation | Source |
