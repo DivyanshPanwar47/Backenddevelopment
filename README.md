@@ -34,7 +34,7 @@ Each experiment is organised in its own folder under `LAB/`. Depending on the ta
 
 | Assignment | Report | Source | Live app |
 |---|---|---|---|
-| **Assignment 1 – Notes App** | [Open report](./theory%20assignment/Assignment%201%20-%20Notes%20App/README.md) | [View source](https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/theory%20assignment/Assignment%201%20-%20Notes%20App) | [Open live app](https://divyanshpanwar47.github.io/Backenddevelopment/) |
+| **Assignment 1 – Notes App** | [Open report](./theory%20assignment/Assignment%201%20-%20Notes%20App/README.md) | [View source](https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/theory%20assignment/Assignment%201%20-%20Notes%20App) | [Open live app](https://divyanshpanwar47.github.io/Backenddevelopment/assignment-1/) |
 | **Assignment 2 – PostgreSQL JSONB** | [Open report / submission](./theory%20assignment/590018990_assignment2.md) | [View Markdown source](./theory%20assignment/590018990_assignment2.md) | — |
 
 ## Lab Experiments

@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "theory assignment/Assignment 1 - Notes App/**"
+      - "pages/index.html"
       - ".github/workflows/assignment-1-pages.yml"
   workflow_dispatch:
 
@@ -27,10 +28,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Upload Assignment 1 site
+      - name: Prepare Pages site
+        shell: bash
+        run: |
+          mkdir -p "_site/assignment-1"
+          cp -R "theory assignment/Assignment 1 - Notes App/." "_site/assignment-1/"
+          cp "pages/index.html" "_site/index.html"
+
+      - name: Upload Pages site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "theory assignment/Assignment 1 - Notes App"
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment
