@@ -30,6 +30,13 @@ This repository contains my Backend Development coursework, laboratory experimen
 
 Each experiment is organised in its own folder under `LAB/`. Depending on the task, the folder contains source code, setup instructions, API examples, screenshots or a report describing the objective and implementation.
 
+## Theory Assignments
+
+| Assignment | Report | Source | Live app |
+|---|---|---|---|
+| **Assignment 1 – Notes App** | [Open report](./theory%20assignment/Assignment%201%20-%20Notes%20App/README.md) | [View source](https://github.com/DivyanshPanwar47/Backenddevelopment/tree/main/theory%20assignment/Assignment%201%20-%20Notes%20App) | [Open live app](https://divyanshpanwar47.github.io/Backenddevelopment/) |
+| **Assignment 2 – PostgreSQL JSONB** | [Open report / submission](./theory%20assignment/590018990_assignment2.md) | [View Markdown source](./theory%20assignment/590018990_assignment2.md) | — |
+
 ## Lab Experiments
 
 | Exp. | Experiment | Main topics | Documentation | Source |
