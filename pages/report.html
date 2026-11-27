@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Report | Backend Development</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #172033;
+        background: #f4f7fb;
+      }
+
+      body {
+        margin: 0;
+        padding: 2rem;
+      }
+
+      main {
+        width: min(920px, 100%);
+        margin: 0 auto;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: #4356c7;
+        font-weight: 700;
+      }
+
+      .report {
+        background: #fff;
+        border: 1px solid #dce3ef;
+        border-radius: 1rem;
+        padding: clamp(1.25rem, 4vw, 2.5rem);
+        box-shadow: 0 12px 30px rgb(35 49 80 / 8%);
+        line-height: 1.65;
+      }
+
+      .report h1,
+      .report h2,
+      .report h3,
+      .report h4 {
+        line-height: 1.2;
+        color: #172033;
+      }
+
+      .report h1 {
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #e7ebf3;
+      }
+
+      .report pre {
+        overflow-x: auto;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        color: #dbe5ff;
+        background: #172033;
+        line-height: 1.45;
+      }
+
+      .report code {
+        padding: 0.12rem 0.3rem;
+        border-radius: 0.3rem;
+        background: #eef1f8;
+      }
+
+      .report pre code {
+        padding: 0;
+        background: transparent;
+      }
+
+      .report table {
+        width: 100%;
+        border-collapse: collapse;
+        display: block;
+        overflow-x: auto;
+      }
+
+      .report th,
+      .report td {
+        padding: 0.65rem 0.8rem;
+        border: 1px solid #dce3ef;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .report th {
+        background: #f8faff;
+      }
+
+      .report img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .status {
+        color: #58657a;
+      }
+
+      .error {
+        color: #a53232;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="./">← Back to Pages home</a>
+      <p id="status" class="status">Loading report…</p>
+      <article id="report" class="report" aria-live="polite"></article>
+    </main>
+
+    <script>
+      const reports = {
+        "assignment-1": { title: "Assignment 1 · Notes App", file: "./_reports/assignment-1.md" },
+        "assignment-2": { title: "Assignment 2 · PostgreSQL JSONB", file: "./_reports/assignment-2.md" },
+        "exp-1": { title: "Experiment 1 · HTML5", file: "./_reports/exp-1.md" },
+        "exp-2": { title: "Experiment 2 · CSS", file: "./_reports/exp-2.md" },
+        "exp-3": { title: "Experiment 3 · Responsive Web Page", file: "./_reports/exp-3.md" },
+        "exp-4": { title: "Experiment 4 · Bootstrap and Tailwind", file: "./_reports/exp-4.md" },
+        "exp-5": { title: "Experiment 5 · JavaScript", file: "./_reports/exp-5.md" },
+        "exp-12": { title: "Experiment 12 · Node.js, Express and EJS", file: "./_reports/exp-12.md" },
+        "exp-12b": { title: "Experiment 12B · Sessions and Cookies", file: "./_reports/exp-12b.md" },
+        "exp-13": { title: "Experiment 13 · MongoDB", file: "./_reports/exp-13.md" },
+        "exp-13a": { title: "Experiment 13A · MongoDB Authentication", file: "./_reports/exp-13a.md" },
+        "exp-13b": { title: "Experiment 13B · MongoDB Todo App", file: "./_reports/exp-13b.md" },
+        "exp-14": { title: "Experiment 14 · PostgreSQL and MongoDB", file: "./_reports/exp-14.md" },
+        "exp-15": { title: "Experiment 15 · Django Todo", file: "./_reports/exp-15.md" },
+        "exp-16": { title: "Experiment 16 · Containerized CMS", file: "./_reports/exp-16.md" }
+      };
+
+      const key = new URLSearchParams(window.location.search).get("doc") || "assignment-1";
+      const selected = reports[key];
+      const status = document.getElementById("status");
+      const report = document.getElementById("report");
+
+      if (!selected) {
+        status.textContent = "This report is not available on the Pages site.";
+        status.className = "status error";
+      } else {
+        document.title = `${selected.title} | Backend Development`;
+        fetch(selected.file)
+          .then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.text();
+          })
+          .then((markdown) => {
+            status.textContent = selected.title;
+            report.innerHTML = window.marked
+              ? window.marked.parse(markdown)
+              : `<pre>${markdown.replaceAll("&", "&amp;").replaceAll("<", "&lt;")}</pre>`;
+          })
+          .catch((error) => {
+            status.textContent = `Unable to load this report: ${error.message}`;
+            status.className = "status error";
+          });
+      }
+    </script>
+  </body>
+</html>

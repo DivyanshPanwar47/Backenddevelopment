@@ -5,7 +5,11 @@ on:
     branches: [main]
     paths:
       - "theory assignment/Assignment 1 - Notes App/**"
+      - "theory assignment/590018990_assignment2.md"
+      - "LAB/**/README.md"
+      - "LAB/**/report.md"
       - "pages/index.html"
+      - "pages/report.html"
       - ".github/workflows/assignment-1-pages.yml"
   workflow_dispatch:
 
@@ -32,8 +36,25 @@ jobs:
         shell: bash
         run: |
           mkdir -p "_site/assignment-1"
+          mkdir -p "_site/_reports"
           cp -R "theory assignment/Assignment 1 - Notes App/." "_site/assignment-1/"
           cp "pages/index.html" "_site/index.html"
+          cp "pages/report.html" "_site/report.html"
+          cp "theory assignment/Assignment 1 - Notes App/README.md" "_site/_reports/assignment-1.md"
+          cp "theory assignment/590018990_assignment2.md" "_site/_reports/assignment-2.md"
+          cp "LAB/EXP-1/report.md" "_site/_reports/exp-1.md"
+          cp "LAB/EXP-2/report.md" "_site/_reports/exp-2.md"
+          cp "LAB/EXP-3/README.md" "_site/_reports/exp-3.md"
+          cp "LAB/EXP-4/README.md" "_site/_reports/exp-4.md"
+          cp "LAB/EXP-5/README.md" "_site/_reports/exp-5.md"
+          cp "LAB/EXP-12/README.md" "_site/_reports/exp-12.md"
+          cp "LAB/EXP-12B/README.md" "_site/_reports/exp-12b.md"
+          cp "LAB/EXP-13/README.md" "_site/_reports/exp-13.md"
+          cp "LAB/EXP-13A/README.md" "_site/_reports/exp-13a.md"
+          cp "LAB/EXP-13B/README.md" "_site/_reports/exp-13b.md"
+          cp "LAB/EXP-14/README.md" "_site/_reports/exp-14.md"
+          cp "LAB/EXP-15/README.md" "_site/_reports/exp-15.md"
+          cp "LAB/EXP-16/README.md" "_site/_reports/exp-16.md"
 
       - name: Upload Pages site
         uses: actions/upload-pages-artifact@v3
